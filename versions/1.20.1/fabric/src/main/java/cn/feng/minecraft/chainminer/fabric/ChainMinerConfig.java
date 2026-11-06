@@ -112,7 +112,7 @@ public final class ChainMinerConfig {
 
         if (rawRules != null) {
             for (String raw : rawRules) {
-                String rule = normalize(raw);
+                String rule = normalizeRule(raw);
                 if (rule != null) {
                     normalized.add(rule);
                 }
@@ -140,7 +140,7 @@ public final class ChainMinerConfig {
         return new Snapshot(safeMax, texts, List.copyOf(parsed));
     }
 
-    private static String normalize(String raw) {
+    public static String normalizeRule(String raw) {
         if (raw == null) {
             return null;
         }
@@ -151,6 +151,10 @@ public final class ChainMinerConfig {
         boolean isTag = value.startsWith("#");
         Identifier id = Identifier.tryParse(isTag ? value.substring(1) : value);
         return id == null ? null : (isTag ? "#" : "") + id;
+    }
+
+    public static List<String> getDefaultRules() {
+        return DEFAULT_RULES;
     }
 
     private record Snapshot(int maxBlocks, List<String> ruleTexts, List<Rule> rules) {

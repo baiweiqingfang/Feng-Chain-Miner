@@ -3,10 +3,19 @@
   "key.feng_chain_miner.open_config": "打开连锁挖矿设置",
   "screen.feng_chain_miner.title": "枫之连锁挖矿设置",
   "screen.feng_chain_miner.max_blocks": "最多连锁数量（1–4096）",
-  "screen.feng_chain_miner.blocks": "允许的方块或标签（用逗号分隔）",
-  "screen.feng_chain_miner.help": "示例：minecraft:stone, #minecraft:logs；标签前需要加 #",
+  "screen.feng_chain_miner.new_rule": "添加方块或标签（如 minecraft:stone 或 #minecraft:logs）",
+  "screen.feng_chain_miner.rule_list": "当前规则（%s 条，点击一行进行选择）",
+  "screen.feng_chain_miner.add": "添加",
+  "screen.feng_chain_miner.delete": "删除选中",
+  "screen.feng_chain_miner.reset": "恢复默认",
+  "screen.feng_chain_miner.previous": "上一页",
+  "screen.feng_chain_miner.next": "下一页",
   "screen.feng_chain_miner.save": "保存并返回",
   "screen.feng_chain_miner.error_number": "连锁数量必须是 1 到 4096 之间的整数",
-  "screen.feng_chain_miner.error_save": "保存配置失败，请检查 config 文件夹权限"
+  "screen.feng_chain_miner.error_save": "保存配置失败，请检查 config 文件夹权限",
+  "screen.feng_chain_miner.error_rule": "格式不正确，请填写方块 ID 或以 # 开头的标签",
+  "screen.feng_chain_miner.error_duplicate": "这条规则已经在列表中了",
+  "screen.feng_chain_miner.error_select": "请先选中要删除的规则",
+  "screen.feng_chain_miner.defaults_restored": "已恢复默认规则，点击保存后生效"
 }
 

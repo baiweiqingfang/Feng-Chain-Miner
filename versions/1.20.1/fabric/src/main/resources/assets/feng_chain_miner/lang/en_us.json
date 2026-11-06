@@ -3,10 +3,19 @@
   "key.feng_chain_miner.open_config": "Open chain miner settings",
   "screen.feng_chain_miner.title": "Feng Chain Miner Settings",
   "screen.feng_chain_miner.max_blocks": "Maximum chained blocks (1–4096)",
-  "screen.feng_chain_miner.blocks": "Allowed blocks or tags (comma-separated)",
-  "screen.feng_chain_miner.help": "Example: minecraft:stone, #minecraft:logs; prefix tags with #",
+  "screen.feng_chain_miner.new_rule": "Add a block or tag (e.g. minecraft:stone or #minecraft:logs)",
+  "screen.feng_chain_miner.rule_list": "Current rules (%s; click a row to select it)",
+  "screen.feng_chain_miner.add": "Add",
+  "screen.feng_chain_miner.delete": "Delete selected",
+  "screen.feng_chain_miner.reset": "Restore defaults",
+  "screen.feng_chain_miner.previous": "Previous",
+  "screen.feng_chain_miner.next": "Next",
   "screen.feng_chain_miner.save": "Save and return",
   "screen.feng_chain_miner.error_number": "The chain limit must be an integer from 1 to 4096",
-  "screen.feng_chain_miner.error_save": "Could not save the config; check config folder permissions"
+  "screen.feng_chain_miner.error_save": "Could not save the config; check config folder permissions",
+  "screen.feng_chain_miner.error_rule": "Enter a valid block ID or a tag prefixed with #",
+  "screen.feng_chain_miner.error_duplicate": "That rule is already in the list",
+  "screen.feng_chain_miner.error_select": "Select a rule before deleting it",
+  "screen.feng_chain_miner.defaults_restored": "Default rules restored; save to apply"
 }
 
