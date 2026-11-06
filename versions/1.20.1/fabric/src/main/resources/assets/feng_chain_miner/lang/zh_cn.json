@@ -1,0 +1,12 @@
+{
+  "key.category.feng_chain_miner": "枫之连锁挖矿",
+  "key.feng_chain_miner.open_config": "打开连锁挖矿设置",
+  "screen.feng_chain_miner.title": "枫之连锁挖矿设置",
+  "screen.feng_chain_miner.max_blocks": "最多连锁数量（1–4096）",
+  "screen.feng_chain_miner.blocks": "允许的方块或标签（用逗号分隔）",
+  "screen.feng_chain_miner.help": "示例：minecraft:stone, #minecraft:logs；标签前需要加 #",
+  "screen.feng_chain_miner.save": "保存并返回",
+  "screen.feng_chain_miner.error_number": "连锁数量必须是 1 到 4096 之间的整数",
+  "screen.feng_chain_miner.error_save": "保存配置失败，请检查 config 文件夹权限"
+}
+

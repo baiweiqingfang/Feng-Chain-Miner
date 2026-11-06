@@ -1,0 +1,12 @@
+{
+  "key.category.feng_chain_miner": "Feng Chain Miner",
+  "key.feng_chain_miner.open_config": "Open chain miner settings",
+  "screen.feng_chain_miner.title": "Feng Chain Miner Settings",
+  "screen.feng_chain_miner.max_blocks": "Maximum chained blocks (1–4096)",
+  "screen.feng_chain_miner.blocks": "Allowed blocks or tags (comma-separated)",
+  "screen.feng_chain_miner.help": "Example: minecraft:stone, #minecraft:logs; prefix tags with #",
+  "screen.feng_chain_miner.save": "Save and return",
+  "screen.feng_chain_miner.error_number": "The chain limit must be an integer from 1 to 4096",
+  "screen.feng_chain_miner.error_save": "Could not save the config; check config folder permissions"
+}
+

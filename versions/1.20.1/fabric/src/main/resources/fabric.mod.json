@@ -8,7 +8,8 @@
   "license": "MIT",
   "environment": "*",
   "entrypoints": {
-    "main": ["cn.feng.minecraft.chainminer.fabric.ChainMinerFabric"]
+    "main": ["cn.feng.minecraft.chainminer.fabric.ChainMinerFabric"],
+    "client": ["cn.feng.minecraft.chainminer.fabric.client.ChainMinerClient"]
   },
   "depends": {
     "fabricloader": ">=0.16.0",
