@@ -1,0 +1,2 @@
+plugins { id 'fabric-loom' version '1.6.12' }
+apply from: '../../../gradle/fabric-yarn.gradle'

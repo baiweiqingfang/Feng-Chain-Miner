@@ -10,7 +10,10 @@ base {
 }
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
-sourceSets.main.java.srcDir('../../../core/src/main/java')
+sourceSets.main.java.setSrcDirs([
+        '../../../core/src/main/java',
+        '../../1.20.1/forge/src/main/java'
+])
 
 minecraft {
     mappings channel: 'official', version: project.minecraft_version
@@ -34,6 +37,9 @@ processResources {
             forge_version: project.forge_version
     ]
     inputs.properties replaceProperties
+    from('../../1.20.1/forge/src/main/resources/assets') {
+        into 'assets'
+    }
     filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) {
         expand replaceProperties
     }

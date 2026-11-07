@@ -1,0 +1,21 @@
+modLoader="javafml"
+loaderVersion="[50,)"
+license="MIT"
+[[mods]]
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}"
+authors="feng"
+description='''Automatic configurable chain mining. No Shift key required.'''
+[[dependencies.${mod_id}]]
+modId="forge"
+mandatory=true
+versionRange="[50,)"
+ordering="NONE"
+side="BOTH"
+[[dependencies.${mod_id}]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.5,1.20.7)"
+ordering="NONE"
+side="BOTH"

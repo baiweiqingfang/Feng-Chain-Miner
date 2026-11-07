@@ -424,7 +424,7 @@ public final class ChainMinerConfigScreen extends Screen {
 
     @Override
     public void render(GuiGraphics graphics, int mouseX, int mouseY, float delta) {
-        renderBackground(graphics);
+        graphics.fillGradient(0, 0, width, height, 0xC0101010, 0xD0101010);
         graphics.drawCenteredString(font, title, width / 2, 8, 0xFFFFFF);
 
         int contentWidth = Math.min(560, width - 24);

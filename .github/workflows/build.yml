@@ -18,6 +18,30 @@ jobs:
           - name: forge-1.20.1
             project: versions/1.20.1/forge
             java: 17
+          - name: fabric-1.20.2
+            project: versions/1.20.2/fabric
+            java: 17
+          - name: forge-1.20.2
+            project: versions/1.20.2/forge
+            java: 17
+          - name: fabric-1.20.4
+            project: versions/1.20.4/fabric
+            java: 17
+          - name: forge-1.20.4
+            project: versions/1.20.4/forge
+            java: 17
+          - name: fabric-1.20.6
+            project: versions/1.20.6/fabric
+            java: 21
+          - name: forge-1.20.6
+            project: versions/1.20.6/forge
+            java: 21
+          - name: fabric-1.21.1
+            project: versions/1.21.1/fabric
+            java: 21
+          - name: forge-1.21.1
+            project: versions/1.21.1/forge
+            java: 21
     runs-on: ubuntu-latest
     name: ${{ matrix.name }}
     steps:

@@ -14,7 +14,10 @@ repositories {
     mavenCentral()
 }
 
-sourceSets.main.java.srcDir('../../../core/src/main/java')
+sourceSets.main.java.setSrcDirs([
+        '../../../core/src/main/java',
+        '../../1.20.1/fabric/src/main/java'
+])
 
 dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
@@ -25,6 +28,9 @@ dependencies {
 
 processResources {
     inputs.property 'version', project.version
+    from('../../1.20.1/fabric/src/main/resources/assets') {
+        into 'assets'
+    }
     filesMatching('fabric.mod.json') {
         expand 'version': project.version
     }
