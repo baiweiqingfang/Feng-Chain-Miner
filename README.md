@@ -29,11 +29,10 @@ Fabric 与 Forge 版使用相同的界面和配置格式，只包含连锁挖矿
 | Minecraft | Fabric | Forge | Java |
 | --- | --- | --- | --- |
 | 1.20.1 | ✅ | ✅ | 17 |
-| 1.21.1 | ✅ | ✅ | 21 |
 
 Fabric 版需要安装 Fabric API；Forge 版没有额外运行依赖。每个 Minecraft 版本需要下载对应的 jar，不能跨版本混用。
 
-后续计划适配 1.21.11 和 26.x；这些版本的 Minecraft 与加载器接口有明显变化，会作为独立目标发布，不会用一个 jar 强行兼容。
+当前首个正式版本只发布 Minecraft 1.20.1。后续版本会作为独立目标适配，不会用一个 jar 强行跨版本兼容。
 
 ## 安装
 
@@ -50,8 +49,6 @@ HMCL 中请先确认实例的游戏版本和加载器，再把对应文件拖入
 ```bash
 ./gradlew -p versions/1.20.1/fabric build
 ./gradlew -p versions/1.20.1/forge build
-./gradlew -p versions/1.21.1/fabric build
-./gradlew -p versions/1.21.1/forge build
 ```
 
 Windows 中使用 `gradlew.bat`。生成的 jar 位于相应项目的 `build/libs` 文件夹。
