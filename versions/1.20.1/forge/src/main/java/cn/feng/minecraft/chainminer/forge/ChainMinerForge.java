@@ -5,6 +5,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.MinecraftForge;
@@ -20,11 +21,11 @@ import java.util.UUID;
 @Mod(ChainMinerForge.MOD_ID)
 public final class ChainMinerForge {
     public static final String MOD_ID = "feng_chain_miner";
-    private static final int MAX_TOTAL_BLOCKS = 128;
     private static final int LOG_FAMILY = 100;
     private static final Set<UUID> ACTIVE_PLAYERS = new HashSet<>();
 
     public ChainMinerForge() {
+        ChainMinerConfig.initialize();
         MinecraftForge.EVENT_BUS.addListener(this::onBlockBreak);
     }
 
@@ -36,18 +37,21 @@ public final class ChainMinerForge {
         }
 
         BlockState originalState = event.getState();
-        int family = getFamily(originalState);
-        if (family == 0) {
+        if (!ChainMinerConfig.allows(originalState)) {
             return;
         }
 
+        int family = getFamily(originalState);
         Block originalBlock = originalState.getBlock();
+        TagKey<Block> customTag = family == 0
+                ? ChainMinerConfig.firstMatchingTag(originalState)
+                : null;
         List<BlockPos> connected = ChainSearch.findConnected(
                 event.getPos().immutable(),
                 ChainMinerForge::neighbors,
-                pos -> level.getChunkSource().hasChunk(pos.getX() >> 4, pos.getZ() >> 4)
-                        && matches(level.getBlockState(pos), originalBlock, family),
-                MAX_TOTAL_BLOCKS
+                pos -> isLoaded(level, pos)
+                        && matches(level.getBlockState(pos), originalBlock, family, customTag),
+                ChainMinerConfig.getMaxBlocks()
         );
 
         ACTIVE_PLAYERS.add(player.getUUID());
@@ -56,7 +60,10 @@ public final class ChainMinerForge {
                 if (!player.isAlive()) {
                     break;
                 }
-                if (matches(level.getBlockState(target), originalBlock, family)) {
+                if (target.equals(event.getPos())) {
+                    continue;
+                }
+                if (matches(level.getBlockState(target), originalBlock, family, customTag)) {
                     player.gameMode.destroyBlock(target);
                 }
             }
@@ -79,8 +86,26 @@ public final class ChainMinerForge {
         return result;
     }
 
-    private static boolean matches(BlockState state, Block originalBlock, int family) {
-        return family == LOG_FAMILY ? state.getBlock() == originalBlock : getFamily(state) == family;
+    private static boolean isLoaded(ServerLevel level, BlockPos pos) {
+        return level.getChunkSource().hasChunk(pos.getX() >> 4, pos.getZ() >> 4);
+    }
+
+    private static boolean matches(
+            BlockState state,
+            Block originalBlock,
+            int family,
+            TagKey<Block> customTag
+    ) {
+        if (family == LOG_FAMILY) {
+            return state.getBlock() == originalBlock && ChainMinerConfig.allows(state);
+        }
+        if (family != 0) {
+            return getFamily(state) == family && ChainMinerConfig.allows(state);
+        }
+        if (customTag != null) {
+            return state.is(customTag);
+        }
+        return state.getBlock() == originalBlock;
     }
 
     private static int getFamily(BlockState state) {
@@ -96,4 +121,3 @@ public final class ChainMinerForge {
         return 0;
     }
 }
-

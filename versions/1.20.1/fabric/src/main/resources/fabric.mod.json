@@ -11,9 +11,6 @@
     "main": ["cn.feng.minecraft.chainminer.fabric.ChainMinerFabric"],
     "client": ["cn.feng.minecraft.chainminer.fabric.client.ChainMinerClient"]
   },
-  "mixins": [
-    "feng_chain_miner.mixins.json"
-  ],
   "depends": {
     "fabricloader": ">=0.16.0",
     "minecraft": "~1.20.1",

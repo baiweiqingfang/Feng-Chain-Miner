@@ -14,7 +14,7 @@ Automatic vein mining for ores and logs. No Shift key required.
 [[dependencies.${mod_id}]]
 modId="forge"
 mandatory=true
-versionRange="[${forge_version},)"
+versionRange="[47,)"
 ordering="NONE"
 side="BOTH"
 
