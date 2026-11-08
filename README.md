@@ -33,10 +33,11 @@ Fabric 与 Forge 版使用相同的界面和配置格式，只包含连锁挖矿
 | 1.20.3–1.20.4 | ✅ | ✅ | 17 |
 | 1.20.5–1.20.6 | ✅ | ✅ | 21 |
 | 1.21–1.21.1 | ✅ | ✅ | 21 |
+| 1.21.2–1.21.3 | ✅ | ✅ | 21 |
 
 Fabric 版需要安装 Fabric API；Forge 版没有额外运行依赖。每个 Minecraft 版本需要下载对应的 jar，不能跨版本混用。
 
-1.21.2 至最新正式版 26.3 正在按接口分界继续适配，进度见 [COMPATIBILITY.md](COMPATIBILITY.md)。每个版本范围使用独立构建目标，不会用一个 jar 强行跨不兼容版本。
+1.21.4 至最新正式版 26.3 正在按接口分界继续适配，进度见 [COMPATIBILITY.md](COMPATIBILITY.md)。每个版本范围使用独立构建目标，不会用一个 jar 强行跨不兼容版本。
 
 ## 安装
 
@@ -61,6 +62,8 @@ HMCL 中请先确认实例的游戏版本和加载器，再把对应文件拖入
 ./gradlew -p versions/1.20.6/forge build
 ./gradlew -p versions/1.21.1/fabric build
 ./gradlew -p versions/1.21.1/forge build
+./gradlew -p versions/1.21.3/fabric build
+./gradlew -p versions/1.21.3/forge build
 ```
 
 Windows 中使用 `gradlew.bat`。生成的 jar 位于相应项目的 `build/libs` 文件夹。
@@ -70,7 +73,7 @@ Windows 中使用 `gradlew.bat`。生成的 jar 位于相应项目的 `build/lib
 - `core`：与加载器无关的连通方块搜索算法。
 - `versions/<mc版本>/fabric`：Fabric 事件及 Minecraft API 适配。
 - `versions/<mc版本>/forge`：Forge 事件及 Minecraft API 适配。
-- `.github/workflows`：四套版本的自动构建与发布。
+- `.github/workflows`：所有已验证版本的自动构建与发布。
 
 ## 参与开发
 
