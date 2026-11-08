@@ -15,45 +15,67 @@ jobs:
           - name: fabric-1.20.1
             project: versions/1.20.1/fabric
             java: 17
+            gradle: 8.11.1
           - name: forge-1.20.1
             project: versions/1.20.1/forge
             java: 17
+            gradle: 8.11.1
           - name: fabric-1.20.2
             project: versions/1.20.2/fabric
             java: 17
+            gradle: 8.11.1
           - name: forge-1.20.2
             project: versions/1.20.2/forge
             java: 17
+            gradle: 8.11.1
           - name: fabric-1.20.4
             project: versions/1.20.4/fabric
             java: 17
+            gradle: 8.11.1
           - name: forge-1.20.4
             project: versions/1.20.4/forge
             java: 17
+            gradle: 8.11.1
           - name: fabric-1.20.6
             project: versions/1.20.6/fabric
             java: 21
+            gradle: 8.11.1
           - name: forge-1.20.6
             project: versions/1.20.6/forge
             java: 21
+            gradle: 8.11.1
           - name: fabric-1.21.1
             project: versions/1.21.1/fabric
             java: 21
+            gradle: 8.11.1
           - name: forge-1.21.1
             project: versions/1.21.1/forge
             java: 21
+            gradle: 8.11.1
           - name: fabric-1.21.3
             project: versions/1.21.3/fabric
             java: 21
+            gradle: 8.11.1
           - name: forge-1.21.3
             project: versions/1.21.3/forge
             java: 21
+            gradle: 8.11.1
           - name: fabric-1.21.4
             project: versions/1.21.4/fabric
             java: 21
+            gradle: 8.11.1
           - name: forge-1.21.4
             project: versions/1.21.4/forge
             java: 21
+            gradle: 8.11.1
+          - name: fabric-1.21.5
+            project: versions/1.21.5/fabric
+            java: 21
+            gradle: 8.12.1
+          - name: forge-1.21.5
+            project: versions/1.21.5/forge
+            java: 21
+            gradle: 8.12.1
     runs-on: ubuntu-latest
     name: ${{ matrix.name }}
     steps:
@@ -63,8 +85,10 @@ jobs:
           distribution: temurin
           java-version: ${{ matrix.java }}
       - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: ${{ matrix.gradle }}
       - name: Build
-        run: ./gradlew -p ${{ matrix.project }} build --stacktrace
+        run: gradle -p ${{ matrix.project }} build --stacktrace
       - uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.name }}
