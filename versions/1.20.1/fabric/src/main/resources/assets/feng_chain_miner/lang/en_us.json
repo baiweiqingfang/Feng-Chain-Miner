@@ -1,5 +1,6 @@
 {
   "key.category.feng_chain_miner": "Feng Chain Miner",
+  "key.category.feng_chain_miner.general": "Feng Chain Miner",
   "key.feng_chain_miner.open_config": "Open chain miner settings",
   "screen.feng_chain_miner.title": "Feng Chain Miner Settings",
   "screen.feng_chain_miner.max_blocks": "Maximum chained blocks (1–4096)",

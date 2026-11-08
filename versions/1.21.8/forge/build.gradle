@@ -1,0 +1,49 @@
+plugins {
+    id 'net.minecraftforge.gradle' version '[6.0.36,6.2)'
+}
+
+version = project.mod_version
+group = project.mod_group_id
+
+base {
+    archivesName = project.archives_base_name
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+sourceSets.main.java.setSrcDirs([
+        '../../../core/src/main/java',
+        'src/main/java'
+])
+
+minecraft {
+    mappings channel: 'official', version: project.minecraft_version
+}
+
+repositories {
+    maven { url = 'https://maven.minecraftforge.net/' }
+    mavenCentral()
+}
+
+dependencies {
+    minecraft "net.minecraftforge:forge:${project.minecraft_version}-${project.forge_version}"
+}
+
+processResources {
+    def replaceProperties = [
+            mod_id: project.mod_id,
+            mod_name: project.mod_name,
+            mod_version: project.mod_version
+    ]
+    inputs.properties replaceProperties
+    from('../../1.20.1/forge/src/main/resources/assets') {
+        into 'assets'
+    }
+    filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) {
+        expand replaceProperties
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = 21
+}

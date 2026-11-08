@@ -1,5 +1,6 @@
 {
   "key.category.feng_chain_miner": "枫之连锁挖矿",
+  "key.category.feng_chain_miner.general": "枫之连锁挖矿",
   "key.feng_chain_miner.open_config": "打开连锁挖矿设置",
   "screen.feng_chain_miner.title": "枫之连锁挖矿设置",
   "screen.feng_chain_miner.max_blocks": "最多连锁数量（1–4096）",

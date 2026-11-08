@@ -76,6 +76,54 @@ jobs:
             project: versions/1.21.5/forge
             java: 21
             gradle: 8.12.1
+          - name: fabric-1.21.8
+            project: versions/1.21.8/fabric
+            java: 21
+            gradle: 8.14.3
+          - name: forge-1.21.8
+            project: versions/1.21.8/forge
+            java: 21
+            gradle: 8.14.3
+          - name: fabric-1.21.10
+            project: versions/1.21.10/fabric
+            java: 21
+            gradle: 8.14.3
+          - name: forge-1.21.10
+            project: versions/1.21.10/forge
+            java: 25
+            gradle: 9.3.1
+          - name: fabric-1.21.11
+            project: versions/1.21.11/fabric
+            java: 25
+            gradle: 9.3.1
+          - name: forge-1.21.11
+            project: versions/1.21.11/forge
+            java: 25
+            gradle: 9.3.1
+          - name: fabric-26.1
+            project: versions/26.1/fabric
+            java: 25
+            gradle: 9.6.0
+          - name: forge-26.1
+            project: versions/26.1/forge
+            java: 25
+            gradle: 9.6.0
+          - name: fabric-26.2
+            project: versions/26.2/fabric
+            java: 25
+            gradle: 9.6.0
+          - name: forge-26.2
+            project: versions/26.2/forge
+            java: 25
+            gradle: 9.6.0
+          - name: fabric-26.3
+            project: versions/26.3/fabric
+            java: 25
+            gradle: 9.6.0
+          - name: forge-26.3
+            project: versions/26.3/forge
+            java: 25
+            gradle: 9.6.0
     runs-on: ubuntu-latest
     name: ${{ matrix.name }}
     steps:
@@ -88,7 +136,7 @@ jobs:
         with:
           gradle-version: ${{ matrix.gradle }}
       - name: Build
-        run: gradle -p ${{ matrix.project }} build --stacktrace
+        run: gradle --no-daemon -p ${{ matrix.project }} build --stacktrace
       - uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.name }}

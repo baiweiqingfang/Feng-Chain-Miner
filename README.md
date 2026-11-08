@@ -12,7 +12,7 @@
 - 使用玩家正常挖掘流程，保留工具耐久、附魔、掉落和权限检查。
 - 连锁挖掘逻辑仅在服务端执行；单人游戏直接安装，服务器使用时服务端必须安装。
 
-### 1.20.1 游戏内设置（Fabric / Forge）
+### 游戏内设置（Fabric / Forge）
 
 - 默认按 `V` 打开设置界面，也可以在“选项 → 控制”中重新绑定快捷键。
 - 可设置每次最多连锁的方块数量，范围为 1–4096。
@@ -36,10 +36,16 @@ Fabric 与 Forge 版使用相同的界面和配置格式，只包含连锁挖矿
 | 1.21.2–1.21.3 | ✅ | ✅ | 21 |
 | 1.21.4 | ✅ | ✅ | 21 |
 | 1.21.5 | ✅ | ✅ | 21 |
+| 1.21.6–1.21.8 | ✅ | ✅ | 21 |
+| 1.21.9–1.21.10 | ✅ | ✅ | 21 |
+| 1.21.11 | ✅ | ✅ | 21 |
+| 26.1 | ✅ | ✅ | 25 |
+| 26.2 | ✅ | ✅ | 25 |
+| 26.3 | ✅ | ✅ | 25 |
 
 Fabric 版需要安装 Fabric API；Forge 版没有额外运行依赖。每个 Minecraft 版本需要下载对应的 jar，不能跨版本混用。
 
-1.21.6 至最新正式版 26.3 正在按接口分界继续适配，进度见 [COMPATIBILITY.md](COMPATIBILITY.md)。每个版本范围使用独立构建目标，不会用一个 jar 强行跨不兼容版本。
+当前已验证范围为 1.20.1 至最新正式版 26.3，详细的版本分界见 [COMPATIBILITY.md](COMPATIBILITY.md)。每个版本范围使用独立构建目标，不会用一个 jar 强行跨不兼容版本。
 
 ## 安装
 
@@ -51,7 +57,7 @@ HMCL 中请先确认实例的游戏版本和加载器，再把对应文件拖入
 
 ## 本地构建
 
-仓库包含 Gradle Wrapper。按目标版本选择命令：
+按目标版本选择对应子项目进行构建，例如：
 
 ```bash
 ./gradlew -p versions/1.20.1/fabric build
@@ -68,16 +74,15 @@ HMCL 中请先确认实例的游戏版本和加载器，再把对应文件拖入
 ./gradlew -p versions/1.21.3/forge build
 ./gradlew -p versions/1.21.4/fabric build
 ./gradlew -p versions/1.21.4/forge build
+gradle -p versions/1.21.8/fabric build
+gradle -p versions/1.21.10/forge build
+gradle -p versions/1.21.11/fabric build
+gradle -p versions/26.1/forge build
+gradle -p versions/26.2/fabric build
+gradle -p versions/26.3/forge build
 ```
 
-1.21.5 使用 Gradle 8.12.1：
-
-```bash
-gradle -p versions/1.21.5/fabric build
-gradle -p versions/1.21.5/forge build
-```
-
-Windows 中使用 `gradlew.bat`，或安装对应版本的 Gradle 后使用 `gradle.bat`。生成的 jar 位于相应项目的 `build/libs` 文件夹。
+1.21.5 使用 Gradle 8.12.1，1.21.8/1.21.10 Fabric 使用 8.14.3，1.21.10 Forge 与 1.21.11 使用 9.3.1，26.x 使用 9.6.0。Windows 中使用对应版本的 `gradle.bat`。生成的 jar 位于相应项目的 `build/libs` 文件夹；GitHub Actions 已为每个目标配置正确的 Gradle 和 Java。
 
 ## 项目结构
 
