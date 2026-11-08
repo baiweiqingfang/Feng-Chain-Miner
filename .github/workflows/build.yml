@@ -48,6 +48,12 @@ jobs:
           - name: forge-1.21.3
             project: versions/1.21.3/forge
             java: 21
+          - name: fabric-1.21.4
+            project: versions/1.21.4/fabric
+            java: 21
+          - name: forge-1.21.4
+            project: versions/1.21.4/forge
+            java: 21
     runs-on: ubuntu-latest
     name: ${{ matrix.name }}
     steps:
