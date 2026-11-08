@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "feng_chain_miner",
+  "version": "${version}",
+  "name": "Feng Chain Miner",
+  "description": "Automatic vein mining for ores and logs. No Shift key required.",
+  "authors": ["feng"],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["cn.feng.minecraft.chainminer.fabric.ChainMinerFabric"],
+    "client": ["cn.feng.minecraft.chainminer.fabric.client.ChainMinerClient"]
+  },
+  "depends": {
+    "fabricloader": ">=0.16.10",
+    "minecraft": "=1.21.5",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
